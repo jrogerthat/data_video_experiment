@@ -1,0 +1,50 @@
+<div id="debrief">
+<h2>Reasoning Study</h2>
+
+<p class="placeholder">
+The goal of this study is to better understand how visualizations can help with reasoning problems. The result of this study will help in the improvement of future visualization designs. <br><br>Thank you again for your participation.  
+</p>
+
+<p>
+<strong>Please add a comment below and then click Submit to complete the experiment and get your post ID for Mechanical Turk. You must leave a comment to get your post ID.</strong>  
+</p>
+
+<textarea name="textarea" rows="10" cols="50" placeholder="Please leave any feedback here"></textarea>
+<br>
+<button id="submitComments" disabled="false" type="button">Submit</button>
+<br>
+<strong><div id="submitFeedback"></div></strong>
+<h2 id="postID2"></h2>
+
+</div>
+
+<style>
+</style>
+
+<script>
+(function() {
+
+  experimentr.clearNext(); 
+
+  var postId  = experimentr.postId
+    , data    = {};
+
+  d3.select("#postId").text(postId);
+
+  var comments = d3.select('#debrief').select('textarea')
+    .on('keypress', function() { d3.select('#submitComments').attr('disabled', null); })
+    .on('blur', function() { d3.select('#submitComments').attr('disabled', null); });
+
+  d3.select('#submitComments')
+    .on('click', function () { data.comments = comments.property('value'); validate(); });
+
+  function validate() {
+   if( data.comments ) {
+      experimentr.addData(data);
+      d3.select('#submitComments').attr('disabled', 'true');
+      d3.select('#submitFeedback').text('Please copy and paste the following code back on Mechanical Turk before closing this window:');
+      d3.select('#postID2').text(postId);
+   }
+  }
+}());
+</script>

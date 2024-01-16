@@ -1,0 +1,150 @@
+
+<div id="demographics">
+<h2>Reasoning Study</h2>
+<p id="demoinstr">
+Please fill out the following demographics form.
+</p>
+
+<div id="age"><strong>Your age:</strong>
+    <div id="ages">
+        <input type="radio" id="a1" name="age" value="18-24"> 18-24
+        <input type="radio" id="a2" name="age" value="25-39"> 25-39
+        <input type="radio" id="a3" name="age" value="40-49"> 40-49
+        <input type="radio" id="a4" name="age" value="50-59"> 50-59
+        <input type="radio" id="a5" name="age" value="60+"> 60+
+        <input type="radio" id="a6" name="age" value="R"> Prefer not answer
+    </div>
+</div>
+<br>
+<div id="sex"><strong>Your gender:</strong>
+    <div id="sexes">
+        <input type="radio" id="s1" name="sex" value="Male"> Male
+        <input type="radio" id="s2" name="sex" value="Female"> Female
+        <input type="radio" id="s3" name="sex" value="Other"> Non-binary
+        <input type="radio" id="s4" name="sex" value="R"> Prefer not answer
+    </div>
+</div>
+<br>
+<div id="degree"><strong>Highest degree obtained:</strong>
+    <div id="degrees">
+        <input type="radio" id="d1" name="degree" value="High School"> High School
+        <input type="radio" id="d2" name="degree" value="Bachelors"> Bachelors
+        <input type="radio" id="d3" name="degree" value="Masters"> Masters
+        <input type="radio" id="d4" name="degree" value="PhD"> PhD
+        <input type="radio" id="d5" name="degree" value="Other"> Other
+        <input type="radio" id="d6" name="degree" value="R"> Prefer not answer
+    </div>
+</div>
+<br>
+<div id="monitor"><strong>Your monitor size is closest to:</strong>
+    <div id="monitors">
+        <input type="radio" id="m1" name="monitor" value="9 or smaller"> 9" or smaller
+        <input type="radio" id="m2" name="monitor" value=11> 11"
+        <input type="radio" id="m3" name="monitor" value=13> 13"
+        <input type="radio" id="m4" name="monitor" value=15> 15"
+        <input type="radio" id="m5" name="monitor" value=17> 17"
+        <input type="radio" id="m6" name="monitor" value=19> 19"
+        <input type="radio" id="m7" name="monitor" value=21> 21"
+        <input type="radio" id="m8" name="monitor" value="23 or larger"> 23" or larger
+        <input type="radio" id="m9" name="monitor" value="dontknow"> I'm not sure
+        <input type="radio" id="m10" name="monitor" value="R"> Prefer not answer
+    </div>
+</div>
+<br>
+<div id="computer"><strong>About how many hours per week you use a computer:</strong>
+    <div id="computers">
+        <input type="radio" id="c1" name="computer" value="lt5"> Less than 5
+        <input type="radio" id="c2" name="computer" value="6-10"> 6-10
+        <input type="radio" id="c3" name="computer" value="11-20"> 11-20
+        <input type="radio" id="c4" name="computer" value="21-30"> 21-30
+        <input type="radio" id="c5" name="computer" value="31-40"> 31-40
+        <input type="radio" id="c6" name="computer" value="41-50"> 41-50
+        <input type="radio" id="c7" name="computer" value="51-60"> 51-60
+        <input type="radio" id="c8" name="computer" value="gt60"> Greater than 60 
+        <input type="radio" id="c9" name="computer" value="R"> Prefer not answer
+    </div>
+</div>
+<br>
+<div id="expert"><strong>Rate your expertise with statistical visualizations:</strong>
+    <div id="experts">
+        <input type="radio" id="e1" name="expert" value="novice"> Novice
+        <input type="radio" id="e2" name="expert" value="low-intermediate"> Low-intermediate
+        <input type="radio" id="e3" name="expert" value="intermediate"> Intermediate
+        <input type="radio" id="e4" name="expert" value="high-intermediate"> High-intermediate
+        <input type="radio" id="e5" name="expert" value="expert"> Expert
+        <input type="radio" id="e6" name="expert" value="R"> Prefer not answer 
+    </div>
+</div>
+<br>
+<div id="train"><strong>Rate your level of statistical training from none (1) to highly trained (5):</strong>
+    <div id="trainings">
+        <input type="radio" id="t1" name="train" value="1"> 1
+        <input type="radio" id="t2" name="train" value="2"> 2
+        <input type="radio" id="t3" name="train" value="3"> 3
+        <input type="radio" id="t4" name="train" value="4"> 4
+        <input type="radio" id="t5" name="train" value="5"> 5
+        <input type="radio" id="t6" name="train" value="R"> Prefer not answer 
+    </div>
+</div>
+<br>
+<div id="cb"><strong>Are you colorblind?</strong>
+    <div id="cbs">
+        <input type="radio" id="cb1" name="cb" value="colorblind"> Yes
+        <input type="radio" id="cb2" name="cb" value="not_colorblind"> No
+        <input type="radio" id="cb3" name="cb" value="R"> Prefer not answer 
+    </div>
+</div>
+<br>
+</div>
+
+<script> 
+(function() {
+
+  var data = {}; 
+
+  experimentr.startTimer('demo');
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'age' ? this : null; })
+  .on('change', function() { data.age = this.value; validate(); });
+  
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sex' ? this : null; })
+  .on('change', function() { data.sex = this.value; validate(); });
+  
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'degree' ? this : null; })
+  .on('change', function() { data.degree = this.value; validate(); });
+  
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'monitor' ? this : null; })
+  .on('change', function() { data.monitor = this.value; validate(); });
+  
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'computer' ? this : null; })
+  .on('change', function() { data.computer = this.value; validate(); });
+  
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'expert' ? this : null; })
+  .on('change', function() { data.expert = this.value; validate(); });
+  
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'train' ? this : null; })
+  .on('change', function() { data.train = this.value; validate(); });
+   
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'cb' ? this : null; })
+  .on('change', function() { data.cb = this.value; validate(); });
+   
+    
+  function validate() {
+	  if(data.age && data.sex && data.degree && 
+                                data.monitor && data.computer && 
+                                        data.expert && data.train && data.cb) {
+	    experimentr.endTimer('demo');
+	    experimentr.addData(data);
+	    experimentr.release();
+	  } 
+	}
+}());
+</script>

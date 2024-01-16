@@ -1,0 +1,68 @@
+<div id="directions">
+
+<h2>Reasoning Study</h2>
+
+<p>
+<strong>Instructions</strong><br>
+For this experiment you will be shown a visualization and/or a text description describing a reasoning problem. At the bottom of the page will be a button labeled "I'm ready to see the question". Please take as much time as you want to understand the visualization and/or text. When you are ready to answer a few questions based on the information presented, please click the "I'm ready to see the question" button. The visualization and/or text will remain on the page with the questions. 
+</p>
+
+<p>
+If you are presented with a visualization, it may be static or interactive. If it is interactive, you will see a legend with checkboxes that you may click to check or uncheck as  many times as you wish. Examples are shown below.
+</p>
+
+Example legend of a static visualization: 
+<div class="ex_legend"> 
+      <span id="have_disease_cb_text">Example legend A</span>
+      <span id="do_not_have_disease_cb_text">Example legend B</span>
+      <span id="test_positive_cb_text">Example legend C</span>
+      <span id="test_negative_cb_text">Example legend D</span>
+</div>
+<br><br>
+Example legend of an interactive visualization:
+<div class="ex_legend_2"> 
+  <svg id="click_here" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 60">
+    <g>
+      <path d="m 0 20 l 40 0 l 0 -20 l 30 30 l -30 30 l 0 -20 l -40 0 l 0 -20" fill="#ff2600" stroke="#000000" stroke-width="0" />
+      <text x="15" y="35" font-size="16px" fill="white">Click</text>
+    </g>
+  </svg>
+
+    <form id="checks_dir" action="/action_page.php">
+      <input type="checkbox" id="leg_a" value="legend_a" checked>
+      <span id="have_disease_cb_text">Example legend A</span>
+      <input type="checkbox" id="leg_b" value="legend_b" checked>
+      <span id="do_not_have_disease_cb_text">Example legend B</span>
+      <input type="checkbox" id="leg_c" value="legend_c" checked>
+      <span id="test_positive_cb_text">Example legend C</span>
+      <input type="checkbox" id="leg_d" value="legend_d" checked>
+      <span id="test_negative_cb_text">Example legend D</span>
+    </form>
+</div>
+<br>
+
+<p style="clear:both;">
+After you have read the above instructions, click Start to begin the experiment. 
+<button id="start" type="button">Start</button>
+</p>
+</div>
+
+<style>
+        #images {
+                
+        }
+</style>
+
+<script>
+(function() {
+
+        init(); 
+
+        function init() {
+                experimentr.hideNext(); 
+
+                d3.select('#start').on('click', experimentr.next); 
+
+        }
+}())
+</script>

@@ -1,0 +1,53 @@
+<div id="exp">
+ <h1>Reasoning Study</h1>
+</div>
+
+<div id="fill">
+</div>
+
+<script type="text/javascript">
+
+var pages = ['modules/exp/stim0.html', 'modules/exp/stim1.html', 'modules/exp/stim2.html',
+            'modules/exp/stim3.html', 'modules/exp/stim4.html', 'modules/exp/stim5.html'];
+var data = [];
+
+(function() {
+    experimentr.hideNext(); 
+    selectStim();
+})(); 
+ 
+function selectStim() {
+     var n = Math.floor(Math.random() * 6);
+     // var n = 1; 
+    if ( n === 0) {
+        //worse 
+        data.stim = "worse";
+        experimentr.addData(data);
+    } else if ( n === 1) {
+        //worseStatic 
+        data.stim = "worseStatic";
+        experimentr.addData(data); 
+    } else if ( n === 2) {
+        //middle
+        data.stim = "middle";
+        experimentr.addData(data);
+    } else if ( n === 3) {
+        //middleStatic
+        data.stim = "middleStatic";
+        experimentr.addData(data);
+    } else if ( n === 4) {
+        //better
+        data.stim = "better";
+        experimentr.addData(data);
+    } else if ( n === 5) {
+        //betterStatic
+        data.stim = "betterStatic";
+        experimentr.addData(data);
+    }
+    d3.html(pages[n], function(err, d) {
+              if(err) console.log(err);
+              d3.select('#fill').node().appendChild(d);
+    }); 
+}
+
+</script>            

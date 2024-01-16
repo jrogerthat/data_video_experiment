@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<title>Data Videos Survey</title>
+
+<!-- Calls to /scripts are redirected to /node_modules/ on the server -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+<script src="experimentr.js"></script>
+<script src="d3-iconarray.js"></script> 
+<link rel="stylesheet" type="text/css" href="css/style_svg_better.css">
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+
+<body></body>
+
+<script>
+experimentr.sequence([
+  'modules/consent/',
+  // 'modules/directions/',
+  // 'modules/exp/',
+  // 'modules/surveyIns/',
+  'modules/demographics/',
+  // 'modules/spatial/instructions-spatial.html',
+  // 'modules/spatial/spatial-first.html', 
+  // 'modules/spatial/spatial-rest.html',
+  // 'modules/spatial/spatial-second.html',
+  'modules/debrief/'
+]).start();
+
+</script>
+
