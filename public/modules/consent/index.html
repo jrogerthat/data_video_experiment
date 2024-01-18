@@ -2,6 +2,11 @@
 
 <h2>Data Videos Study</h2>
 
+<div id="mobile-warning">
+  Mobile device detected. Please try again with a desktop or laptop.
+</div>
+
+<div id="not-mobile">
 <p>
 Are data videos better for communincation to a wide audience? This study seeks to better understand differences in insight and recall between data videos and static visualizations. 
 Should you choose to participate you will be asked to: 
@@ -14,7 +19,7 @@ Should you choose to participate you will be asked to:
 
 <div id="consentForm">
 <p>
-<center><strong>Form of Consent</strong></center><br>
+<div><strong>Form of Consent</strong></div><br>
 You are invited to participate in a study conducted by the Visual Analytics Lab at Tufts University. Please read the following carefully before deciding to participate. You may participate in this study if you are between the ages of 18 and 65 and are comfortable with communicating in English.
  We expect the entire study to take about <span class="missing">[FILL IN]</span> minutes maximum, but you will be allotted <span class="missing">[FILL IN]</span> minutes to complete the study. 
  Your participation in the study is completely voluntary. 
@@ -51,6 +56,8 @@ I have read and understand the information above, and have decided to participat
 
 </div>
 
+</div>
+
 <style>
   #invalidMessage {
     display: none;
@@ -69,12 +76,20 @@ I have read and understand the information above, and have decided to participat
 (function() {
 
         init(); 
-
         function init() {
-                experimentr.hideNext(); 
-
-                d3.select('#consentYes').on('click', experimentr.next); 
-
+          if(isMobile()){
+            d3.select('#not-mobile').remove();
+          }else{
+            d3.select('#mobile-warning').remove();
+            experimentr.hideNext(); 
+            d3.select('#consentYes').on('click', experimentr.next); 
+          }
+          
         }
+
+  function isMobile() {
+    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  }
 }())
 </script>
