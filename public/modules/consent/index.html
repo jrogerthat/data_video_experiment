@@ -79,6 +79,7 @@ I have read and understand the information above, and have decided to participat
         function init() {
           if(isMobile()){
             d3.select('#not-mobile').remove();
+            experimentr.hideNext(); 
           }else{
             d3.select('#mobile-warning').remove();
             experimentr.hideNext(); 

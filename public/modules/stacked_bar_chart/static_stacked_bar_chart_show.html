@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stacked Bar Chart</title>
+</head>
+
+<body>
+
+<div id= "static_stacked_bar_chart_show"> </div>
+<div id="static_stacked_bar_chart">
+
+<p>THIS IS A TEST FOR STACKED BAR CHART</p>
+
+</div>
+
+<style>
+ 
+</style>
+
+<script> 
+(function() {
+  var data = {};
+  var answers = {};
+  
+
+  init();
+  
+  function init(){
+
+    //start timer
+  	experimentr.attachTimer('#static_stacked_bar_chart_show', 10, function(){
+  	  if(experimentr.get_current() == 'modules/stacked_bar_chart/static_stacked_bar_chart_show.html'){
+    		experimentr.endTimer('static_stacked_bar_chart');
+    	
+    		experimentr.addData(data);
+    		experimentr.next();
+    	}
+  	});
+  	
+  	//overrides onNext from experimentr
+    d3.select('#next-button')
+      .on('click', function(){
+      	
+        experimentr.addData(data);
+        experimentr.next();
+    });
+    
+    experimentr.startTimer('static_stacked_bar_chart');
+    experimentr.release();
+    display();
+    
+  }
+  
+
+  function display(){
+    
+		// d3.selectAll('input')
+		// .on('click', function() { 
+		// 	if (prev[this.name]){
+		// 		if(prev[this.name] == this.value){
+		// 			this.checked = false; 
+		// 			prev[this.name] = null;
+		// 			data['spatial_'+d3.select(this).attr('name')]  = null;	
+		// 		}else{
+		// 			prev[this.name] = this.value;
+		// 			data['spatial_'+d3.select(this).attr('name')] = this.value; 
+		// 		}
+		// 	}else{
+		// 		prev[this.name] = this.value;
+		// 		data['spatial_'+d3.select(this).attr('name')] = this.value; 
+		// 	}
+		// });
+  }
+}());
+</script>
+</body>
+</html>
