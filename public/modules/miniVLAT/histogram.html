@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Histogram</title>
+</head>
+
+<body>
+
+<div id= "VLAT_histogram"> </div>
+<div id="histogram">
+
+<img src = "modules/img/VLAT/histogram.png" alt="histogram" width="700px"/> <br />
+
+<div id="histogram_question"><strong>What distance have customers traveled in the taxi the most?</strong>
+	<div id="h_answers">
+        <!-- answer = 30-40 -->
+		<input type="radio" id="a1" name="histogram" value="12"> 0-10
+		<input type="radio" id="a2" name="histogram" value="20"> 100-110
+		<input type="radio" id="a3" name="histogram" value="30-40"> 30-40 
+        <input type="radio" id="a4" name="histogram" value="80-90"> 80-90
+		<input type="radio" id="a5" name="histogram" value="Skip"> Skip.
+	</div>
+</div>
+
+</div>
+
+<style>
+ 
+</style>
+
+<script> 
+(function() {
+  var data = {};
+  var answers = {};
+  
+
+  init();
+  
+  function init(){
+
+	data.histogram_question = null;
+
+    //start timer
+  	// experimentr.attachTimer('#VLAT_line_chart', 10, function(){
+  	//   if(experimentr.get_current() == 'modules/miniVLAT/line_chart.html'){
+    // 		experimentr.endTimer('VLAT_line_chart');
+    		
+    // 		experimentr.addData(data);
+    // 		experimentr.next();
+    // 	}
+  	// });
+
+	d3.selectAll('input')
+	.on('change', function() { data.histogram_question = this.value; });
+  	
+  	//overrides onNext from experimentr
+    d3.select('#next-button')
+      .on('click', function(){
+        experimentr.endTimer('VLAT_histogram');
+        experimentr.addData(data);
+        experimentr.next();
+    });
+    
+    experimentr.startTimer('VLAT_histogram');
+    experimentr.release();
+   
+  }
+}());
+</script>
+</body>
+</html>
