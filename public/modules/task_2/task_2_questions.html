@@ -133,6 +133,7 @@
 
   experimentr.startTimer('sus');
   //d3.select('#status').text(experimentr.status());
+  experimentr.release();
 
   d3.selectAll('input')
   .filter(function(d) { return this.name === 'sus_frequent' ? this : null; })
