@@ -8,19 +8,26 @@
 
 <div id= "VLAT_area_chart"> </div>
 <div id="area_chart">
-<img src = "modules/img/VLAT/area_chart.png" alt="area_chart" width="700px"/> <br />
-
-<div id="area_chart_question"><strong>What was the average price of pound of coffee beans in October 2019?</strong>
-	<div id="ac_answers">
-        <!-- answer = $0.72 -->
-		<input type="radio" id="a1" name="area_chart_question" value="$0.715"> $0.72
-		<input type="radio" id="a2" name="area_chart_question" value="$0.77"> $0.77
-		<input type="radio" id="a3" name="area_chart_question" value="$0.56"> $0.56
-		<input type="radio" id="a4" name="area_chart_question" value="$0.85"> $0.85
-		<input type="radio" id="a5" name="area_chart_question" value="Skip"> Skip.
-	</div>
+<div class="flex_vlat">
+  <div>
+    <img src = "modules/img/VLAT/area_chart.png" alt="area_chart" width="700px"/>
+  </div>
+  <!-- <br /> -->
+  <div id="area_chart_question">
+    <strong>What was the average price of pound of coffee beans in October 2019?</strong>
+    <div id="ac_answers">
+          <!-- answer = $0.72 -->
+          <ul>
+            <li><input type="radio" id="a1" name="area_chart_question" value="$0.715"> $0.72</li>
+            <li><input type="radio" id="a1" name="area_chart_question" value="$0.715"> $0.72</li>
+            <li><input type="radio" id="a2" name="area_chart_question" value="$0.77"> $0.77</li>
+            <li><input type="radio" id="a3" name="area_chart_question" value="$0.56"> $0.56</li>
+            <li><input type="radio" id="a4" name="area_chart_question" value="$0.85"> $0.85</li>
+            <li><input type="radio" id="a5" name="area_chart_question" value="Skip"> Skip.</li>
+          </ul>
+    </div>
+  </div>
 </div>
-
 </div>
 
 <style>

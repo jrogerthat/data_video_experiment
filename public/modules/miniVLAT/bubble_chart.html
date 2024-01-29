@@ -8,19 +8,23 @@
 
 <div id= "VLAT_bubble_chart"> </div>
 <div id="bubble_chart">
-<img src = "modules/img/VLAT/bubble_chart.png" alt="bubble_chart" width="700px"/> <br />
-
-<div id="bubble_chart_question"><strong>Which city’s metro system has the largest number of stations?</strong>
-	<div id="bc_answers">
-         <!-- answer = Shanghai -->
-		<input type="radio" id="a1" name="bubble_chart_question" value="Moscow"> Moscow
-		<input type="radio" id="a2" name="bubble_chart_question" value="Shanghai"> Shanghai
-		<input type="radio" id="a3" name="bubble_chart_question" value="Tokyo"> Tokyo
-		<input type="radio" id="a4" name="bubble_chart_question" value="Seoul"> Seoul
-		<input type="radio" id="a5" name="bubble_chart_question" value="Skip"> Skip.
-	</div>
+  <div class="flex_vlat">
+    <div>
+      <img src = "modules/img/VLAT/bubble_chart.png" alt="bubble_chart" width="700px"/> 
+    </div>
+    <div id="bubble_chart_question"><strong>Which city’s metro system has the largest number of stations?</strong>
+      <div id="bc_answers">
+            <!-- answer = Shanghai -->
+            <ul>
+              <li><input type="radio" id="a1" name="bubble_chart_question" value="Moscow"> Moscow</li>
+              <li><input type="radio" id="a2" name="bubble_chart_question" value="Shanghai"> Shanghai</li>
+              <li><input type="radio" id="a3" name="bubble_chart_question" value="Tokyo"> Tokyo</li>
+              <li><input type="radio" id="a4" name="bubble_chart_question" value="Seoul"> Seoul</li>
+              <li><input type="radio" id="a5" name="bubble_chart_question" value="Skip"> Skip.</li>
+            </ul>
+      </div>
+    </div>
 </div>
-
 </div>
 
 <style>

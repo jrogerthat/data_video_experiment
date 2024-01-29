@@ -16,13 +16,17 @@
     ul {
         list-style-type: none;
     }
+    #attention_check{
+      width:70%;
+      margin:auto;
+    }
 </style>
 
 <script>
     (function() {
       var data = {};
 
-      experimentr.hideNext(); 
+      // experimentr.hideNext(); 
     
       d3.selectAll('input.att-check')
         .on('change', function() { data.attention_check = this.value; validate(); });

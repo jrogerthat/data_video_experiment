@@ -8,18 +8,21 @@
 
 <div id= "VLAT_choropleth"> </div>
 <div id="choropleth">
-
-<img src = "modules/img/VLAT/choropleth.png" alt="choropleth" width="700px"/> <br />
-
-<div id="choropleth_question"><strong>In 2020, the unemployment rate for Washington (WA) was higher than that of Wisconsin (WI).</strong>
-	<div id="c_answers">
-        <!-- answer = 30-40 -->
-		<input type="radio" id="a1" name="choropleth" value="true"> true
-		<input type="radio" id="a2" name="choropleth" value="false"> false
-		<input type="radio" id="a3" name="choropleth" value="Skip"> Skip.
-	</div>
-</div>
-
+  <div class="flex_vlat">
+    <div>
+      <img src = "modules/img/VLAT/choropleth_map.png" alt="choropleth" width="700px"/>
+    </div>
+    <div id="choropleth_question"><strong>In 2020, the unemployment rate for Washington (WA) was higher than that of Wisconsin (WI).</strong>
+      <div id="c_answers">
+            <!-- answer = 30-40 -->
+            <ul>
+              <li><input type="radio" id="a1" name="choropleth" value="true"> true</li>
+              <li><input type="radio" id="a2" name="choropleth" value="false"> false</li>
+              <li><input type="radio" id="a3" name="choropleth" value="Skip"> Skip.</li>
+            </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>

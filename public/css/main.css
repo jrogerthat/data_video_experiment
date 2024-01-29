@@ -18,6 +18,26 @@ span.missing{
   width: 75%;
 }
 
+.flex_vlat{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex_vlat ul{
+  list-style-type: none;
+}
+
+.flex_vlat div{
+  width:40%;
+}
+
+.flex_vlat img{
+  width:100%;
+  height:auto;
+}
+
 .checkboxes {
   width: 720px;
   text-align: center;
@@ -42,4 +62,9 @@ span.missing{
 .placeholder {
   color: steelblue;
   font-weight: bold;
+}
+
+#control{
+  width:60%;
+  margin:auto;
 }
