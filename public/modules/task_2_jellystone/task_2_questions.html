@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 2 Questions</title>
+</head>
+
+<body>
+  <div id="task_2_questions">
+    <h5> <span id="status"></span> </h5>
+    <h3 id="susintr">Please answer the questions from what you can recall about the visualization: </h3>
+    <br>
+      <div id="task2_q1"><span class="question header">1. Your friend only wants to visit when it's likely to be between 32°F-70°F, which month will you recommend?</span>
+        <br>
+        <ul>
+          <li><input type="radio" name="t2_q1" value="Nights average below 30°F">June</li>
+          <li><input type="radio" name="t2_q1" value="Nights average below 40°F">February</li>
+          <li><input type="radio" name="t2_q1" value="Nights average below 50°F">August</li>
+          <li><input type="radio" name="t2_q1" value="Nights average below 60°F">July</li>
+          <li><input type="radio" name="t2_q1" value="I do not recall">I do not recall</li>
+        </ul>
+      </div>
+      <br>
+      <div id="task2_q2"><span class="question header">2. What is the nightly peak of tent camping activity in Jellystone?</span>
+        <br>
+        <ul>
+          <li><input type="radio" name="t2_q2" value="50,000 nights">50,000 nights</li>
+          <li><input type="radio" name="t2_q2" value="100,000 nights">100,000 nights</li>
+          <li><input type="radio" name="t2_q2" value="140,000 nights">140,000 nights</li>
+          <li><input type="radio" name="t2_q2" value="200,000 nights">200,000 nights</li>
+          <li><input type="radio" name="t2_q2" value="I do not recall">I do not recall</li>
+        </ul>
+      </div>
+      <br>
+      <div id="task2_q3"><span class="question header">3. What type of accommodation is available all year round?</span>
+        <br>
+        <ul>
+          <li><input type="radio" name="t2_q3" value=1>Lodging</li>
+          <li><input type="radio" name="t2_q3" value=2>Tent</li>
+          <li><input type="radio" name="t2_q3" value=3>RV</li>
+          <li><input type="radio" name="t2_q3" value=4>Backcountry</li>
+          <li><input type="radio" name="t2_q3" value="I do not recall">I do not recall</li>
+        </ul>
+      </div>
+      <br>
+      <div id="task2_q4"><span class="question header">4. You plan to spend time in Jellystone to snowshoe, please select all accommodation available at that time of year in Jellystone.</span>
+        <br>
+        <ul>
+          <li><input type="checkbox" name="t2_q4_1" value=1>Lodging</li>
+          <li><input type="checkbox" name="t2_q4_2" value=2>Tent</li>
+          <li><input type="checkbox" name="t2_q4_3" value=3>RV</li>
+          <li><input type="checkbox" name="t2_q4_4" value=4>Backcountry</li>
+          <!-- <li><input type="checkbox" name="t2_q4_5" value="I do not recall">I do not recall</li> -->
+        </ul>
+      </div>
+      <br>
+      <div id="task2_q5"><span class="question header">5. You are planning a trip to Jellystone but want to choose the least popular accommodation to beat the crowds. 
+        What type of accommodation has the least amount of nights spent per year?</span>
+        <br>
+        <ul>
+          <li><input type="radio" name="t2_q5" value=1>Lodging</li>
+          <li><input type="radio" name="t2_q5" value=2>Tent</li>
+          <li><input type="radio" name="t2_q5" value=3>RV</li>
+          <li><input type="radio" name="t2_q5" value=4>Backcountry</li>
+          <li><input type="radio" name="t2_q5" value="I do not recall">I do not recall</li>
+        </ul>
+      </div>
+      <br>
+      <div id="task2_q6"><span class="question header">6. You hate being cold at night and are dismayed to see there are a span of ______ months where temperatures can average below 32°F.</span>
+        <br>
+        <ul>
+          <li><input type="radio" name="t2_q6" value=6>6</li>
+          <li><input type="radio" name="t2_q6" value=7>7</li>
+          <li><input type="radio" name="t2_q6" value=8>8</li>
+          <li><input type="radio" name="t2_q6" value=9>9</li>
+          <li><input type="radio" name="t2_q6" value="I do not recall">I do not recall</li>
+        </ul>
+      </div>
+     
+      </div>
+    </div>
+</div>
+
+<style>
+    ul {
+    list-style-type: none;
+    }
+    #task_2_questions{
+      width: 70%;
+      margin: auto;
+    }
+    *{
+      background-color: #f5eeeb;
+    }
+</style>
+
+<script>
+(function() {
+  var data = {};
+
+  experimentr.startTimer('sus');
+  //d3.select('#status').text(experimentr.status());
+  experimentr.release();
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sus_frequent' ? this : null; })
+  .on('change', function() { data.sus_frequent = this.value; validate(); });
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sus_complex' ? this : null; })
+  .on('change', function() { data.sus_complex = this.value; validate(); });
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sus_easy' ? this : null; })
+  .on('change', function() { data.sus_easy = this.value; validate(); });
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sus_support' ? this : null; })
+  .on('change', function() { data.sus_support = this.value; validate(); });
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sus_integrated' ? this : null; })
+  .on('change', function() { data.sus_integrated = this.value; validate(); });
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sus_inconsistent' ? this : null; })
+  .on('change', function() { data.sus_inconsistent = this.value; validate(); });
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sus_quicklearning' ? this : null; })
+  .on('change', function() { data.sus_quicklearning = this.value; validate(); });
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sus_cumbersome' ? this : null; })
+  .on('change', function() { data.sus_cumbersome = this.value; validate(); });
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sus_confident' ? this : null; })
+  .on('change', function() { data.sus_confident = this.value; validate(); });
+
+  d3.selectAll('input')
+  .filter(function(d) { return this.name === 'sus_learning' ? this : null; })
+  .on('change', function() { data.sus_learning = this.value; validate(); });
+
+  function validate() {
+    if(data.sus_frequent && data.sus_complex && data.sus_easy && data.sus_support &&
+      data.sus_integrated && data.sus_inconsistent && data.sus_quicklearning &&
+      data.sus_cumbersome && data.sus_confident && data.sus_learning) {
+
+        gradeSUS(data);
+        experimentr.endTimer('sus');
+        experimentr.addData(data);
+        experimentr.release();
+
+    }
+  }
+
+  function gradeSUS(data) {
+    score = 0;
+    for (answer in data) {
+
+      //Odd numbered questions grading
+      if (answer == 'sus_frequent' || answer == 'sus_easy' || 
+          answer == 'sus_integrated' || answer == 'sus_quicklearning' || 
+          answer == 'sus_confident') {
+
+            score += data[answer] - 1;
+
+      }
+
+      //Even numbered questions grading
+      else if (answer == 'sus_complex' || answer == 'sus_support' || 
+              answer == 'sus_inconsistent' || answer == 'sus_cumbersome' || 
+              answer == 'sus_confident') {
+
+            score += 5 - data[answer];
+
+        }
+
+      //If this procedure has been run already we don't want the "grade"
+      //member variable to be misused accidentally.
+      else {
+        continue;
+      }
+
+    }
+
+    score *= 2.5;
+    data.sus_score = score;
+
+  }
+}());
+</script>
+
+</body>
+</html>
