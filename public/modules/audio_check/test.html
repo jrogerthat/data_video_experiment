@@ -1,0 +1,25 @@
+<div id="audio_check_test">
+
+    <h2>This test requires audio. If you can't hear this, please turrn on your audio before you start.</h2>
+    <audio controls>
+        <source src="modules/audio_check/audio_test_lyrics.m4a">
+    </audio>
+
+</div>
+<script>
+    (function() {
+    
+        var userId  = null
+        var data    = {};
+
+        console.log(d3.select('audio').node().paused)
+
+        d3.select('audio').on('click', ()=> {
+            console.log('TEST');
+        });
+
+       experimentr.release()
+    
+  
+    }());
+</script>

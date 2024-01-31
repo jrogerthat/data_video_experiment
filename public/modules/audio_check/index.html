@@ -1,9 +1,23 @@
 <div id="audio_check">
 
-    <h2>This test requires audio. If you can't hear this, please turrn on your audio before you start.</h2>
+    <h2 id="header_test">This test requires audio. If you can't hear this, please turn on your audio before you start.</h2>
+    <div>
     <audio controls>
         <source src="modules/audio_check/audio_test_lyrics.m4a">
     </audio>
+    </div>  
+
+    <div id="task1_q7">
+        <span class="question header">What words do you hear in this audio clip?</span>
+         <br>
+         <ul>
+          <li><input type="radio" name="audio" class="audio" value=false>"Ooh-ooh, I heard it through the grapevine and I'm just about to lose my mind."</li>
+          <li><input type="radio" name="audio" class="audio" value=false>"Jaws was never my scene and I don't like Star Wars"</li>
+          <li><input type="radio" name="audio" class="audio" value=true>"Never gonna give you up, never gonna let you down"</li>
+          <li><input type="radio" name="audio" class="audio" value=false>"They say time takes its toll on a body, makes the young girls brown hair turn gray"</li>
+          <li><input type="radio" name="audio" class="audio" value=false>"I've been too long, I'm glad to be back"</li>
+         </ul>
+       </div>
 
 </div>
 <script>
@@ -12,13 +26,30 @@
         var userId  = null
         var data    = {};
 
-        console.log(d3.select('audio').node().paused)
+        let turnOff = false;
 
-        d3.select('audio').on('click', ()=> {
-            console.log('TEST');
+
+
+        d3.selectAll('input.audio')
+        .on('change', function() { 
+            console.log('VALUE', this.value)
+            if(!turnOff && this.value === true){
+
+                experimentr.release()
+                
+
+            }else{
+                turnOff = true;
+                experimentr.hideNext();
+                document.getElementById('header_test').innerHTML = "Please turn on audio and restart test."
+            }
+            
+
         });
 
-       experimentr.release()
+       
+
+       
     
   
     }());
