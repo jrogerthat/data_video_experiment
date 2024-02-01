@@ -32,8 +32,10 @@
 
         d3.selectAll('input.audio')
         .on('change', function() { 
-            console.log('VALUE', this.value)
-            if(!turnOff && this.value === true){
+         
+            if(!turnOff && this.value){
+
+                console.log('THIS IS TRUE')
 
                 experimentr.release()
                 

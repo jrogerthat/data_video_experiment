@@ -121,8 +121,7 @@
 	</P>
 
 </div>
-<!-- </div> -->
-<!-- </div> -->
+
 </div>
 <style>
 		.backcountry {
@@ -249,11 +248,19 @@
 	.on('change', function() { data.static_task_1 = this.value; });
   	
   	//overrides onNext from experimentr
-    d3.select('#next-button')
-      .on('click', function(){
+    // d3.select('#next-button')
+    //   .on('click', function(){
       	
-        experimentr.addData(data);
-        experimentr.next();
+    //     experimentr.addData(data);
+    //     experimentr.next();
+    // });
+	d3.select('#next-button')
+      .on('click', function(){
+		if(confirm("Are you sure you want to move on to the questions? \nYou won't be able to go back.")){
+			console.log('PRESSED YES');
+			experimentr.addData(data);
+        	experimentr.next();
+		}
     });
     
     experimentr.startTimer('static_task_1');
