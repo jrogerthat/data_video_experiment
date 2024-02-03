@@ -5,8 +5,24 @@ var experimentr = (function() {
     , mainDiv
     , data = {};
 
+
   // Add a random postId for each new participant
-  data.postId = (+new Date()).toString(36);
+  data.postId = !window.sessionStorage.getItem("postId") ? (+new Date()).toString(36) : window.sessionStorage.getItem("postId");
+
+  if(!window.sessionStorage.getItem("postId")){
+    console.log('need to set post id', data.postId);
+    window.sessionStorage.setItem("postId", data.postId)
+  }else{
+    console.log('THE USER REFRESHED THE PAGE')
+    data.didRefresh = true;
+  }
+
+  data.condition = 1//!window.sessionStorage.getItem("condition") ? Math.random() > 0.5 ? 1 : 0 : window.sessionStorage.getItem("condition");
+
+  if(!window.sessionStorage.getItem("condition")){
+    console.log('condition being set', data.condition);
+    window.sessionStorage.setItem("condition", data.condition);
+  }
 
   // Accessor for postId
   experimentr.postId = function() {
@@ -16,6 +32,10 @@ var experimentr = (function() {
   experimentr.data = function() {
     return data;
   };
+
+  experimentr.condition = function() {
+    return data.condition;
+  }
 
   // Starts the experiment by loading the first module
   experimentr.start = function() {

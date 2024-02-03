@@ -12,11 +12,10 @@
   Are data videos better for communincation to a wide audience? This study seeks to better understand differences in insight and recall between data videos and static visualizations. 
 Should you choose to participate you will be asked to: 
 <ul>
-        <li><span class="missing">[TODO: Need to account for different condition combinations. This contains instructions for both static tasks.]</span></li> 
-        <li>Complete 2 visualization related tasks about an "in the wild" visualization called "A night under the stars: A look at overnight stays at US National Parks"</li>
-        <li>Fill in relevant demographic information.</li>
-        <li>Complete 12 questions to assess your visualization literacy.</li>
-        <li>Provide any feedback you wish</li>
+    <li><span id="condition_instruction"></span></li>
+    <li>Fill in relevant demographic information.</li>
+    <li>Complete 12 questions to assess your visualization literacy.</li>
+    <li>Provide any feedback you wish</li>
 </ul> 
  We expect the entire study to take about <span class="missing">[FILL IN]</span> minutes. You can find the full consent form below.    
 </p>
@@ -83,19 +82,29 @@ I have read and understand the information above, and have decided to participat
 
 <script>
 (function() {
+  console.log('CONDITION in consent', window.sessionStorage.getItem("condition"))
+  console.log('id in session', window.sessionStorage.getItem("postId"))
+  init(); 
 
-        init(); 
-        function init() {
-          if(isMobile()){
-            d3.select('#not-mobile').remove();
-            experimentr.hideNext(); 
-          }else{
-            d3.select('#mobile-warning').remove();
-            experimentr.hideNext(); 
-            d3.select('#consentYes').on('click', experimentr.next); 
-          }
-          
-        }
+  function init() {
+    if(isMobile()){
+      d3.select('#not-mobile').remove();
+      experimentr.hideNext(); 
+    }else{
+      d3.select('#mobile-warning').remove();
+      experimentr.hideNext(); 
+      d3.select('#consentYes').on('click', experimentr.next); 
+    }
+    if(experimentr.condition() === 1){
+      d3.select('#condition_instruction').node().innerHTML = `You will watch two data videos inspired by an "in the wild" visualization called "A night under the stars: A look at overnight stays at US National Parks". 
+      After which you will complete two questionaires measuring comprehension of the visualization as well as your ability to tranfer your understanding to plan aspects of trips to the highlighted parks.`
+    }else{
+      d3.select('#condition_instruction').node().innerHTML = `You will view two visualization/caption pairings inspired by an "in the wild" visualization called "A night under the stars: A look at overnight stays at US National Parks". 
+      After which you will complete two questionaires measuring comprehension of the visualization as well as your ability to tranfer your understanding to plan aspects of trips to the highlighted parks.`
+    }
+  }
+
+
 
   function isMobile() {
     const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;

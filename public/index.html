@@ -14,18 +14,30 @@
 <body></body>
 
 <script>
+
+  //check for Navigation Timing API support
+
+
+// if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+//   console.info( "This page is reloaded" );
+// } else {
+//   console.info( "This page is not reloaded");
+// }
+
 experimentr.sequence([
-  'modules/task_1_crait/crait_vis.html',
+  // 'modules/task_1_crait/crait_vis.html',
+  // 'modules/task_1_crait/stimulus.html',
   // 'modules/enter_id',
   'modules/consent/',
   'modules/audio_check/',
   // 'modules/directions/',
   // 'modules/demographics/',
   'modules/task_1_crait/instructions_task.html',
-  'modules/task_1_crait/static_task_1_vis.html',
+  'modules/task_1_crait/stimulus.html',
   'modules/task_1_crait/task_1_questions.html',
   'modules/task_2_jellystone/instructions_task.html',
-  'modules/task_2_jellystone/static_task_2_vis.html',
+  // 'modules/task_2_jellystone/static_task_2_vis.html',
+  'modules/task_2_jellystone/stimulus.html',
   'modules/task_2_jellystone/task_2_questions.html',
   // 'modules/attention_check',
   'modules/miniVLAT/instructions.html',
@@ -42,6 +54,18 @@ experimentr.sequence([
   'modules/miniVLAT/100_percent_stacked_bar_chart.html',
   'modules/debrief/'
 ]).start();
+
+
+// console.log(window.sessionStorage)
+// // window.sessionStorage.setItem("user_id", experimentr.postId())
+// console.log('EXPERIMENTERE', experimentr.postId())
+// console.log(window.sessionStorage.getItem("postId"))
+// if(!window.sessionStorage.getItem("postId")){
+//   console.log('need to set post id');
+//   window.sessionStorage.setItem("postId", experimentr.postId())
+// }else{
+//   console.log('post id exists!!', window.sessionStorage.getItem("postId"));
+// }
 
 </script>
 
