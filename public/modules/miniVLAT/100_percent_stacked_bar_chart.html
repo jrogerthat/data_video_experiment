@@ -6,7 +6,7 @@
 
 <body>
 
-<div id= "VLAT_100_percent_stacked_bar_chart"> </div>
+<div id= "VLAT_100_percent_stacked_bar_chart_timer"></div>
 <div id="100_percent_stacked_bar_chart">
 <div class="flex_vlat">
   <div>
@@ -38,7 +38,6 @@
 (function() {
   var data = {};
   var answers = {};
-  
 
   init();
   
@@ -46,28 +45,28 @@
 
 	data._100_percent_stacked_bar_chart_question = null;
 
-    //start timer
-  	// experimentr.attachTimer('#VLAT_line_chart', 10, function(){
-  	//   if(experimentr.get_current() == 'modules/miniVLAT/line_chart.html'){
-    // 		experimentr.endTimer('VLAT_line_chart');
+    // start timer
+  	experimentr.attachTimer('#VLAT_100_percent_stacked_bar_chart_timer', 25, function(){
+  	  if(experimentr.get_current() == 'modules/miniVLAT/100_percent_stacked_bar_chart.html'){
+    		experimentr.endTimer('VLAT_100_percent_stacked_bar_chart_timer');
     		
-    // 		experimentr.addData(data);
-    // 		experimentr.next();
-    // 	}
-  	// });
+    		experimentr.addData(data);
+    		experimentr.next();
+    	}
+  	});
 
 	d3.selectAll('input')
 	.on('change', function() { data._100_percent_stacked_bar_chart_question = this.value; });
   	
   	//overrides onNext from experimentr
     d3.select('#next-button')
-      .on('click', function(){
-        experimentr.endTimer('VLAT_100_percent_stacked_bar_chart');
-        experimentr.addData(data);
-        experimentr.next();
+    .on('click', function(){
+      experimentr.endTimer('VLAT_100_percent_stacked_bar_chart_timer');
+      experimentr.addData(data);
+      experimentr.next();
     });
     
-    experimentr.startTimer('VLAT_100_percent_stacked_bar_chart');
+    experimentr.startTimer('VLAT_100_percent_stacked_bar_chart_timer');
     experimentr.release();
    
   }

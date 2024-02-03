@@ -37,6 +37,10 @@ var experimentr = (function() {
     return data.condition;
   }
 
+  experimentr.didRefresh = function() {
+    return data.didRefresh;
+  }
+
   // Starts the experiment by loading the first module
   experimentr.start = function() {
     init();

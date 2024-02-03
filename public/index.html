@@ -11,7 +11,9 @@
 <link rel="stylesheet" type="text/css" href="css/style_svg_better.css">
 <link rel="stylesheet" type="text/css" href="css/main.css" />
 
-<body></body>
+<body>
+<div id="did_refresh" style="display:flex; margin:auto; justify-content: center;"></div>
+</body>
 
 <script>
 
@@ -56,16 +58,10 @@ experimentr.sequence([
 ]).start();
 
 
-// console.log(window.sessionStorage)
-// // window.sessionStorage.setItem("user_id", experimentr.postId())
-// console.log('EXPERIMENTERE', experimentr.postId())
-// console.log(window.sessionStorage.getItem("postId"))
-// if(!window.sessionStorage.getItem("postId")){
-//   console.log('need to set post id');
-//   window.sessionStorage.setItem("postId", experimentr.postId())
-// }else{
-//   console.log('post id exists!!', window.sessionStorage.getItem("postId"));
-// }
+if(experimentr.didRefresh()){
+      let h1 = d3.select("#did_refresh").append('h1');
+      h1.text("You have refreshed the page.")
+  }
 
 </script>
 

@@ -82,8 +82,7 @@ I have read and understand the information above, and have decided to participat
 
 <script>
 (function() {
-  console.log('CONDITION in consent', window.sessionStorage.getItem("condition"))
-  console.log('id in session', window.sessionStorage.getItem("postId"))
+  
   init(); 
 
   function init() {
@@ -102,6 +101,7 @@ I have read and understand the information above, and have decided to participat
       d3.select('#condition_instruction').node().innerHTML = `You will view two visualization/caption pairings inspired by an "in the wild" visualization called "A night under the stars: A look at overnight stays at US National Parks". 
       After which you will complete two questionaires measuring comprehension of the visualization as well as your ability to tranfer your understanding to plan aspects of trips to the highlighted parks.`
     }
+
   }
 
 

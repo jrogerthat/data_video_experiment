@@ -6,7 +6,7 @@
 
 <body>
 
-<div id= "VLAT_treemap"> </div>
+<div id= "VLAT_treemap_timer"> </div>
 <div id="treemap">
   <div class="flex_vlat">
     <div>
@@ -44,14 +44,14 @@
 	data.treemap_question = null;
 
     //start timer
-  	// experimentr.attachTimer('#VLAT_line_chart', 10, function(){
-  	//   if(experimentr.get_current() == 'modules/miniVLAT/line_chart.html'){
-    // 		experimentr.endTimer('VLAT_line_chart');
+  	experimentr.attachTimer('#VLAT_treemap_timer', 25, function(){
+  	  if(experimentr.get_current() == 'modules/miniVLAT/treemap.html'){
+    		experimentr.endTimer('VLAT_treemap_timer');
     		
-    // 		experimentr.addData(data);
-    // 		experimentr.next();
-    // 	}
-  	// });
+    		experimentr.addData(data);
+    		experimentr.next();
+    	}
+  	});
 
 	d3.selectAll('input')
 	.on('change', function() { data.treemap_question = this.value; });
@@ -59,12 +59,12 @@
   	//overrides onNext from experimentr
     d3.select('#next-button')
       .on('click', function(){
-        experimentr.endTimer('VLAT_treemap');
+        experimentr.endTimer('VLAT_treemap_timer');
         experimentr.addData(data);
         experimentr.next();
     });
     
-    experimentr.startTimer('VLAT_treemap');
+    experimentr.startTimer('VLAT_treemap_timer');
     experimentr.release();
    
   }

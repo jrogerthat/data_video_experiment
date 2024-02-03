@@ -6,7 +6,7 @@
 
 <body>
 
-<div id= "static_task_1_timer"> </div>
+<div id= "task_1_stimulus_timer"> </div>
 <div class="flex_layout">
 	<div id="static_task_1">
 		<div class="chart-wrapper">
@@ -154,9 +154,9 @@
 	data.static_task_1 = null;
 
     //start timer
-  	experimentr.attachTimer('#static_task_1_timer', 120, function(){
-  	  if(experimentr.get_current() == 'modules/task_1/static_task_1_vis.html'){ 
-    		experimentr.endTimer('static_task_1');
+  	experimentr.attachTimer('#task_1_stimulus_timer', 120, function(){
+  	  if(experimentr.get_current() == 'modules/task_1_crait/stimulus.html'){
+    		experimentr.endTimer('task_1_stimulus_timer');
     		
     		experimentr.addData(data);
     		experimentr.next();
@@ -172,9 +172,6 @@
         vid.attr('height', '460px');
         let source = vid.append('source');
         source.attr('src', 'modules/task_1_crait/crait_vis.mov');
-//         <video id="video" width="320" height="240" controls>
-//     <source src="video.mp4" type="video/mp4">
-//   </video>
 
     d3.select('.instructions').remove();
 
@@ -185,22 +182,25 @@
         ob.attr('height', '460px')
     }
 
-	d3.selectAll('input')
-	.on('change', function() { data.static_task_1 = this.value; });
+	// d3.selectAll('input')
+	// .on('change', function() { data.static_task_1 = this.value; });
   	
   	//overrides onNext from experimentr
     d3.select('#next-button')
       .on('click', function(){
 		if(confirm("Are you sure you want to move on to the questions? \nYou won't be able to go back.")){
 			console.log('PRESSED YES');
+            experimentr.endTimer('task_1_stimulus_timer');
+            data.used_next = true;
 			experimentr.addData(data);
         	experimentr.next();
+            
 		}
         // experimentr.addData(data);
         // experimentr.next();
     });
     
-    experimentr.startTimer('static_task_1');
+    experimentr.startTimer('task_1_stimulus_timer');
     experimentr.release();
    
   }

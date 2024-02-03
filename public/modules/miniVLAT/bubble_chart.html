@@ -6,7 +6,7 @@
 
 <body>
 
-<div id= "VLAT_bubble_chart"> </div>
+<div id= "VLAT_bubble_chart_timer"> </div>
 <div id="bubble_chart">
   <div class="flex_vlat">
     <div>
@@ -44,14 +44,14 @@
 	data.bubble_chart_question = null;
 
     //start timer
-  	// experimentr.attachTimer('#VLAT_line_chart', 10, function(){
-  	//   if(experimentr.get_current() == 'modules/miniVLAT/line_chart.html'){
-    // 		experimentr.endTimer('VLAT_line_chart');
+  	experimentr.attachTimer('#VLAT_bubble_chart_timer', 25, function(){
+  	  if(experimentr.get_current() == 'modules/miniVLAT/bubble_chart.html'){
+    		experimentr.endTimer('VLAT_bubble_chart_timer');
     		
-    // 		experimentr.addData(data);
-    // 		experimentr.next();
-    // 	}
-  	// });
+    		experimentr.addData(data);
+    		experimentr.next();
+    	}
+  	});
 
 	d3.selectAll('input')
 	.on('change', function() { data.bubble_chart_question = this.value; });
@@ -59,12 +59,12 @@
   	//overrides onNext from experimentr
     d3.select('#next-button')
       .on('click', function(){
-        experimentr.endTimer('VLAT_bubble_chart');
+        experimentr.endTimer('VLAT_bubble_chart_timer');
         experimentr.addData(data);
         experimentr.next();
     });
     
-    experimentr.startTimer('VLAT_bubble_chart');
+    experimentr.startTimer('VLAT_bubble_chart_timer');
     experimentr.release();
    
   }
